@@ -1,5 +1,5 @@
 package Template::LiquidX::Tag::Dump;
-our $VERSION = 1.0.5;
+our $VERSION = v1.0.5;
 use Carp qw[confess];
 use Template::Liquid;
 use base 'Template::Liquid::Tag';
