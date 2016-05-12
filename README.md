@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/sanko/Template-LiquidX-Tag-Dump.svg?branch=master)](https://travis-ci.org/sanko/Template-LiquidX-Tag-Dump)
 # NAME
 
 Template::LiquidX::Tag::Dump - Simple Perl Structure Dumping Tag (Functioning Custom Tag Example)

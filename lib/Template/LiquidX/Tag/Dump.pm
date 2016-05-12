@@ -25,10 +25,10 @@ sub render {
         = $var eq '.'  ? $s->{template}{context}{scopes}
         : $var eq '.*' ? [$s->{template}{context}{scopes}]
         :                $s->{template}{context}->get($var);
-    if (eval { require Data::Dump }) {
+    if (eval { require Data::Dump }) { # Better
         return Data::Dump::pp($var);
     }
-    else {
+    else { # CORE
         require Data::Dumper;
         return Data::Dumper::Dumper($var);
     }
