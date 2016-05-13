@@ -2,6 +2,8 @@ Revision history for Perl extension Template-LiquidX-Tag-Dump
 
 {{$NEXT}}
 
+1.0.6 2016-05-13T18:33:18Z
+
 	- Documentation fix and include a couple examples of output
 
 1.0.5 2016-05-12T18:30:40Z

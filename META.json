@@ -68,6 +68,6 @@
          "web" : "https://github.com/sanko/Template-LiquidX-Tag-Dump"
       }
    },
-   "version" : "1.0.5",
+   "version" : "1.0.6",
    "x_serialization_backend" : "JSON::PP version 2.27300"
 }
