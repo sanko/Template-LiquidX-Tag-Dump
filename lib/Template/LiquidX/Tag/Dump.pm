@@ -49,6 +49,7 @@ Template::LiquidX::Tag::Dump - Simple Perl Structure Dumping Tag (Functioning Cu
     use Template::Liquid;
     use Template::LiquidX::Tag::Dump;
     print Template::Liquid->parse("{%dump var%}")->render(var => [qw[some sort of data here]]);
+	# With Data::Dump installed: ["some", "sort", "of", "data", "here"]
 
 =head1 Description
 
@@ -65,16 +66,47 @@ stringified versions of data structures...
 ...or the entire current scope with C<.>...
 
     use Template::Liquid;
-    use Template::LiquidX::Tag::Include;
+    use Template::LiquidX::Tag::Dump;
     warn Template::Liquid->parse('{%dump .%}')
         ->render(env => \%ENV, inc => \@INC);
 
 ...or the entire stack of scopes with C<.*>...
 
     use Template::Liquid;
-    use Template::LiquidX::Tag::Include;
+    use Template::LiquidX::Tag::Dump;
     warn Template::Liquid->parse('{%for x in (1..1) %}{%dump .*%}{%endfor%}')
         ->render();
+        
+...becomes (w/ Data::Dump installed)...
+
+    do {
+      my $a = [
+        [
+          {
+            forloop => {
+              first   => 1,
+              index   => 1,
+              index0  => 0,
+              last    => 1,
+              length  => 1,
+              limit   => 1,
+              name    => "x-(1..1)",
+              offset  => 0,
+              rindex  => 1,
+              rindex0 => 0,
+              sorted  => undef,
+              type    => "ARRAY",
+            },
+            x => 1,
+          },
+          'fix',
+        ],
+      ];
+      $a->[0][1] = $a->[0][0];
+      $a;
+    }
+
+Notice even the internal C<forloop> variable is included in the dump.        
 
 =head1 Notes
 
